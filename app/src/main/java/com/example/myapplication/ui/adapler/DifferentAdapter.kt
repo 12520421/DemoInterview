@@ -4,7 +4,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.AsyncDifferConfig
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
-import com.example.myapplication.ui.model.ItemDifferent
+import com.example.myapplication.model.ItemDifferent
 
 class DifferentAdapter<D : ItemDifferent, VH : BaseViewHolder<D>>(
     private val viewHolderFactory: (parent: ViewGroup, viewType: Int) -> VH,

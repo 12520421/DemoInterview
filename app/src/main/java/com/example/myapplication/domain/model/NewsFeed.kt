@@ -1,7 +1,7 @@
 package com.example.myapplication.domain.model
 
-import com.example.myapplication.ui.model.ItemDifferent
-import com.example.myapplication.ui.model.SimpleItem
+import com.example.myapplication.model.ItemDifferent
+import com.example.myapplication.model.SimpleItem
 
 data class NewsFeed(
     val document_id: String? = null,

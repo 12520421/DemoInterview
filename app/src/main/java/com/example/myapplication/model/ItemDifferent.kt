@@ -1,4 +1,4 @@
-package com.example.myapplication.ui.model
+package com.example.myapplication.model
 
 interface ItemDifferent {
     val type: Int
