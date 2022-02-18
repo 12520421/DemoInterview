@@ -42,12 +42,12 @@ class DetailActivity : AppCompatActivity() {
     }
 
     private fun setupToolbar() {
-        setSupportActionBar(toolbar)
+        /*setSupportActionBar(toolbar)
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
         supportActionBar!!.setDisplayShowHomeEnabled(true)
 
         toolbar.setNavigationOnClickListener {
             onBackPressed()
-        }
+        }*/
     }
 }
