@@ -12,8 +12,17 @@ data class NewsFeed(
     val publisher: Publisher? = null,
     val avatar: Avatar? = null,
     val images: List<Image>? = null,
+    val displayPublishInfo: String? = null,
     override val type: Int,
-) : ItemDifferent
+) : ItemDifferent{
+    override fun areContentsTheSame(new: ItemDifferent): Boolean {
+        return this == new
+    }
+
+    override fun areItemsTheSame(new: ItemDifferent): Boolean {
+        return this.type == new.type
+    }
+}
 
 data class Publisher(
     val id: String? = null,

@@ -1,18 +1,27 @@
 package com.example.myapplication.data.mapper
 
+import android.content.Context
+import android.text.Html
+import com.example.myapplication.R
 import com.example.myapplication.data.response.DetailNewsFeedResponse
 import com.example.myapplication.data.response.NewsFeedDto
 import com.example.myapplication.domain.model.Avatar
 import com.example.myapplication.domain.model.Image
 import com.example.myapplication.domain.model.NewsFeed
 import com.example.myapplication.domain.model.Publisher
+import com.example.myapplication.domain.utils.DateTimeFormatter
+import com.example.myapplication.utils.safe
+
 
 interface NewsFeedMapper {
     fun toNewsFeed(items: List<NewsFeedDto>): List<NewsFeed>
     fun toDetailNewsFeed(item: DetailNewsFeedResponse): NewsFeed
 }
 
-open class NewsFeedMapperImpl() : NewsFeedMapper {
+open class NewsFeedMapperImpl(
+    private val context: Context,
+    private val dateTimeFormatter: DateTimeFormatter,
+) : NewsFeedMapper {
     override fun toNewsFeed(items: List<NewsFeedDto>): List<NewsFeed> {
         return items.map {
             NewsFeed(
@@ -20,7 +29,7 @@ open class NewsFeedMapperImpl() : NewsFeedMapper {
                 title = it.title,
                 description = it.description,
                 content_type = it.content_type,
-                published_date = it.published_date,
+                published_date = it.published_date.safe(),
                 publisher = Publisher(
                     id = it.publisher?.id,
                     name = it.publisher?.name,
@@ -48,9 +57,25 @@ open class NewsFeedMapperImpl() : NewsFeedMapper {
                     TYPE_ARTICLE -> 5
                     TYPE_LONG_FORM -> 6
                     else -> 0
-                }
+                },
+                displayPublishInfo = toDisplayPublishInfo(
+                    it.publisher?.name.safe(),
+                    it.published_date.safe()
+                )
             )
         }
+    }
+
+    private fun toDisplayPublishInfo(publisherName: String, publisherDate: String): String {
+
+        val dotIcon = Html.fromHtml("&#8226;")
+
+        return context.getString(
+            R.string.text_publish_infomation,
+            publisherName,
+            dotIcon,
+            publisherDate
+        )
     }
 
     override fun toDetailNewsFeed(item: DetailNewsFeedResponse): NewsFeed {

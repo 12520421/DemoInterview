@@ -24,4 +24,10 @@ class NewsFeedViewModel(
             }
         }
     }
+
+    fun deleteItem(position: NewsFeed) {
+        val items = newsFeeds.value?.toMutableList()
+        items?.remove(position)
+        newsFeeds.value = items ?: mutableListOf()
+    }
 }

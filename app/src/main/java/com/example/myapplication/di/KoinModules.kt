@@ -8,6 +8,8 @@ import com.example.myapplication.domain.repositories.DetailRepository
 import com.example.myapplication.domain.repositories.NewsFeedRepository
 import com.example.myapplication.domain.usecase.GetDetailNewUseCase
 import com.example.myapplication.domain.usecase.GetNewsFeedUseCase
+import com.example.myapplication.domain.utils.DateTimeFormatter
+import com.example.myapplication.domain.utils.DateTimeFormatterImpl
 import com.example.myapplication.ui.activities.detail.DetailViewModel
 import com.example.myapplication.ui.activities.home.newsfeed.NewsFeedViewModel
 import com.example.myapplication.viewmodel.HomeViewModel
@@ -40,8 +42,15 @@ val repositoriesModule = module {
         )
     }
 
+    single<DateTimeFormatter> {
+        DateTimeFormatterImpl()
+    }
+
     factory<NewsFeedMapper> {
-        NewsFeedMapperImpl()
+        NewsFeedMapperImpl(
+            context = get(),
+            dateTimeFormatter = get()
+        )
     }
 }
 

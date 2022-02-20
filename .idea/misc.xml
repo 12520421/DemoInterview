@@ -4,9 +4,11 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="app/src/main/res/drawable/ic_account_active.xml" value="0.26296296296296295" />
+        <entry key="app/src/main/res/drawable/ic_back_x.xml" value="0.27685185185185185" />
         <entry key="app/src/main/res/drawable/ic_bottom_nav_tab_account.xml" value="0.26296296296296295" />
         <entry key="app/src/main/res/drawable/ic_bottom_nav_tab_home.xml" value="0.26296296296296295" />
         <entry key="app/src/main/res/drawable/ic_home_active.xml" value="0.26296296296296295" />
+        <entry key="app/src/main/res/drawable/tab_indicator_selector_color.xml" value="0.28055555555555556" />
         <entry key="app/src/main/res/layout/activity_detail.xml" value="0.33958333333333335" />
         <entry key="app/src/main/res/layout/activity_item_detail.xml" value="0.35520833333333335" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.22037037037037038" />
@@ -14,6 +16,7 @@
         <entry key="app/src/main/res/layout/fragment_first.xml" value="0.35520833333333335" />
         <entry key="app/src/main/res/layout/fragment_item_detail.xml" value="0.35520833333333335" />
         <entry key="app/src/main/res/layout/home_fragment.xml" value="0.33958333333333335" />
+        <entry key="app/src/main/res/layout/include_publisher_info.xml" value="0.35520833333333335" />
         <entry key="app/src/main/res/layout/item_child_row_gellery.xml" value="0.35520833333333335" />
         <entry key="app/src/main/res/layout/item_row_gallery.xml" value="0.35520833333333335" />
         <entry key="app/src/main/res/layout/item_row_newsfeed.xml" value="0.35520833333333335" />

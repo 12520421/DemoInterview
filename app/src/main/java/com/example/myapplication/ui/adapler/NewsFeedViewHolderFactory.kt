@@ -15,6 +15,7 @@ import com.example.myapplication.utils.get
 
 class NewsFeedViewHolderFactory(
     private val onClickItem: (NewsFeed) -> Unit,
+    private val onClickDeleteItem: (NewsFeed) -> Unit,
 ) {
     fun create(parent: ViewGroup, viewType: Int): ItemViewHolder<NewsFeed> {
         return when (viewType) {
@@ -48,9 +49,13 @@ class NewsFeedViewHolderFactory(
         ItemViewHolder<NewsFeed>(binding.root) {
         override fun bind(data: NewsFeed, position: Int) {
             binding.imgContent.bindImage(data.publisher?.icon, R.drawable.img_newsfeed_top_banner)
-            binding.tvDate.text = data.published_date
+            binding.tvDate.text = data.displayPublishInfo
             itemView.setOnClickListener {
                 onClickItem.invoke(data)
+            }
+
+            binding.imgDelete.setOnClickListener {
+                onClickDeleteItem.invoke(data)
             }
         }
     }
@@ -59,10 +64,15 @@ class NewsFeedViewHolderFactory(
         ItemViewHolder<NewsFeed>(binding.root) {
         override fun bind(data: NewsFeed, position: Int) {
             binding.ivContent.bindImage(data.avatar?.href)
-            binding.tvDate.text = data.published_date
+            binding.tvDate.text = data.displayPublishInfo
             binding.tvTitle.text = data.title
+
             itemView.setOnClickListener {
                 onClickItem.invoke(data)
+            }
+
+            binding.imgDelete.setOnClickListener {
+                onClickDeleteItem.invoke(data)
             }
         }
     }
@@ -70,7 +80,7 @@ class NewsFeedViewHolderFactory(
     inner class GalleryViewHolder(private val binding: ItemRowGalleryBinding) :
         ItemViewHolder<NewsFeed>(binding.root) {
         override fun bind(data: NewsFeed, position: Int) {
-            binding.tvDate.text = data.published_date
+            binding.tvDate.text = data.displayPublishInfo
             binding.tvTitle.text = data.title
 
             if (data.images.isNullOrEmpty()) {
@@ -96,6 +106,11 @@ class NewsFeedViewHolderFactory(
             itemView.setOnClickListener {
                 onClickItem.invoke(data)
             }
+
+            binding.imgDelete.setOnClickListener {
+                onClickDeleteItem.invoke(data)
+            }
+
         }
     }
 

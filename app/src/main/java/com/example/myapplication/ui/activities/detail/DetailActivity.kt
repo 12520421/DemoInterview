@@ -15,7 +15,7 @@ class DetailActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(com.example.myapplication.R.layout.activity_detail)
+        setContentView(R.layout.activity_detail)
 
         bindView()
         observer()
@@ -42,12 +42,14 @@ class DetailActivity : AppCompatActivity() {
     }
 
     private fun setupToolbar() {
-        /*setSupportActionBar(toolbar)
+        setSupportActionBar(toolbar)
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
         supportActionBar!!.setDisplayShowHomeEnabled(true)
 
         toolbar.setNavigationOnClickListener {
             onBackPressed()
-        }*/
+        }
+
+        supportActionBar!!.title = "Detail"
     }
 }

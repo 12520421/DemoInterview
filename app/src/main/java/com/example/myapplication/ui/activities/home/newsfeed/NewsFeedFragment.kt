@@ -27,7 +27,11 @@ class NewsFeedFragment : Fragment() {
             onClickItem = {
                 val intent = Intent(requireContext(), DetailActivity::class.java)
                 startActivity(intent)
+            },
+            onClickDeleteItem = {
+                viewModel.deleteItem(it)
             }
+
         )::create
     )
 
