@@ -74,7 +74,7 @@ open class NewsFeedMapperImpl(
             R.string.text_publish_infomation,
             publisherName,
             dotIcon,
-            publisherDate
+            dateTimeFormatter.format(publisherDate)
         )
     }
 
